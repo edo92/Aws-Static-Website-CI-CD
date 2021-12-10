@@ -27,6 +27,7 @@
       "rootDir": ".",
       "paths": {
          "@types": ["types"],
+         "@stack": ["./lib/stack"],
          "@pattern/*": ["./lib/pattern/*"],
          "@construct/*": ["./lib/construct/*"],
          "@config": ["./config.json"]
