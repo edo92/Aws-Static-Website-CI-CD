@@ -13,10 +13,8 @@ class DefaultOptions {
    static commands = ['npm install', 'npm run build', 'npx cdk synth'];
 }
 
-export class CdkPipeline extends cdk.Construct {
+export class Pipeline extends pipelines.CodePipeline {
    constructor(scope: cdk.Construct, id: string, props: CdkPipelineProps) {
-      super(scope, id);
-
       /**
        *
        * Github source code for pipeline
@@ -31,17 +29,17 @@ export class CdkPipeline extends cdk.Construct {
        *
        * Synthesize command shell
        */
-      const Synthesize = new pipelines.ShellStep(`Synth-${id}`, {
+      const synthesize = new pipelines.ShellStep('Cdk-Synthesize', {
          input: sourceCode,
          commands: props.commands || DefaultOptions.commands,
       });
 
       /**
        *
-       * Cdk code pipeline
+       * Cdk code pipeline instance
        */
-      new pipelines.CodePipeline(this, `Cdk-${id}`, {
-         synth: Synthesize,
+      super(scope, id, {
+         synth: synthesize,
          pipelineName: props.pipelineName || DefaultOptions.pipelineName,
       });
    }
