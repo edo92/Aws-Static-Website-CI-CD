@@ -13,6 +13,7 @@ export class Infrastructure extends cdk.Stack {
        * Hosting Distribution
        */
       const dist = new distribution.Distribution(this, 'Cloud-Distribution', {
+         account: this.account,
          region: config.settings.region,
          locations: config.settings.locations,
          domainName: config.settings.domainName,

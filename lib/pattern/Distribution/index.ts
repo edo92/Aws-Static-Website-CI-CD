@@ -3,15 +3,19 @@ import * as s3 from '@aws-cdk/aws-s3';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as routeTargets from '@aws-cdk/aws-route53-targets';
 import * as certmanager from '@aws-cdk/aws-certificatemanager';
+
+import * as waf from '@construct/Waf';
 import * as distribution from '@construct/Distribution';
+import securityRules from './wafRules';
 
 interface IResources {
-   region: string;
    domainName: string;
    hostedZoneId: string;
 }
 
 interface DistributionProps extends IResources {
+   region: string;
+   account: string;
    locations: string[];
 }
 
@@ -29,6 +33,16 @@ export class Distribution extends cdk.Construct {
       this.bucket = new s3.Bucket(this, 'Client-Bucket', {
          bucketName: props.domainName,
          blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      });
+
+      /**
+       *
+       * Waf security
+       */
+      const wafAcl = new waf.WAFSecurity(this, 'Waf-Security', {
+         rules: securityRules,
+         scope: waf.Scope.CLOUDFRONT,
+         name: `${props.domainName}-Security`,
       });
 
       /**
@@ -57,9 +71,10 @@ export class Distribution extends cdk.Construct {
       this.cloudDistribute = new distribution.CloudDistribution(this, 'Client-Distribution', {
          certificate,
          bucket: this.bucket,
-         account: scope.account,
-         domainName: props.domainName,
+         webAclId: wafAcl.attrArn,
+         account: props.account,
          locations: props.locations,
+         domainName: props.domainName,
       });
 
       /**

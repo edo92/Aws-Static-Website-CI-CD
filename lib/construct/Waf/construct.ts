@@ -10,6 +10,7 @@ interface IRule {
 }
 
 interface WafProps {
+   name?: string;
    rules: IRule[];
    scope: ScopeType;
    defaultAction?: config.IDefaultAction;
@@ -24,6 +25,8 @@ export enum Scope {
 export class WAFSecurity extends wafv2.CfnWebACL {
    constructor(scope: cdk.Construct, id: string, props: WafProps) {
       super(scope, id, {
+         name: props.name,
+
          defaultAction: Object.assign(
             config.DefaultOptions.visibilityConfig,
             props.defaultAction
