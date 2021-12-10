@@ -4,12 +4,12 @@ import * as cloudFront from '@aws-cdk/aws-cloudfront';
 import * as origin from '@aws-cdk/aws-cloudfront-origins';
 import * as certificate from '@aws-cdk/aws-certificatemanager';
 
-interface CustomOption {
+export interface CustomOptions {
    comment?: string;
    rootObject?: string;
 }
 
-export interface CloudFrontProps extends CustomOption {
+export interface CloudFrontProps extends CustomOptions {
    account: string;
    bucket: s3.Bucket;
    domainName: string;
