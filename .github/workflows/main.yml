@@ -19,7 +19,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-static_cdk${{ hashFiles('package.json') }}
+          key: node-modules-cdk${{ hashFiles('package.json') }}
 
       - name: Install
         run: npm install
