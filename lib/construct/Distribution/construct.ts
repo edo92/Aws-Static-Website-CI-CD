@@ -25,17 +25,23 @@ export class CloudDistribution extends cloudFront.Distribution {
        *
        * Input option
        */
-      const clientOption = {
+      const clientOptions = {
          webAclId: props.webAclId,
          domainNames: [props.domainName],
          certificate: props.certificate,
+      };
+
+      const configOptions = {
+         geoRestriction: config.geoRestriction,
+         defaultBehavior: config.defaultBehavior,
+         defaultRootObject: config.defaultRootObject,
       };
 
       /**
        *
        * Instance
        */
-      super(scope, id, Object.assign(clientOption, config));
+      super(scope, id, Object.assign(clientOptions, configOptions));
 
       /**
        *
