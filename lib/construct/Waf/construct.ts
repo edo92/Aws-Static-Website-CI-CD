@@ -19,6 +19,19 @@ interface WafProps {
 
 export class WAFSecurity extends wafv2.CfnWebACL {
    constructor(scope: cdk.Construct, id: string, props: WafProps) {
-      super(scope, id, props);
+      super(scope, id, {
+         defaultAction: Object.assign(
+            config.DefaultOptions.visibilityConfig,
+            props.defaultAction
+         ),
+
+         visibilityConfig: Object.assign(
+            config.DefaultOptions.visibilityConfig,
+            props.visibilityConfig
+         ),
+
+         scope: props.scope,
+         rules: props.rules.map((item) => item.rule),
+      });
    }
 }

@@ -15,6 +15,7 @@ export class DefaultOptions {
    };
 
    static visibilityConfig = {
+      metricName: 'Waf-Monitoring',
       sampledRequestsEnabled: false,
       cloudWatchMetricsEnabled: true,
    };
