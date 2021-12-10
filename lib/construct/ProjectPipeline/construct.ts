@@ -1,45 +1,50 @@
 import * as types from '@types';
 import * as cdk from '@aws-cdk/core';
-import * as s3 from '@aws-cdk/aws-s3';
-import * as codepipeline from '@aws-cdk/aws-codepipeline';
-import * as pipelineProject from './project';
+import * as codebuild from '@aws-cdk/aws-codebuild';
 
-interface PipelineProjectProps {
-   region: string;
-   account: string;
-   bucketName: string;
-   github: types.IGithub;
+interface Options {
+   privileged?: boolean;
+   timeout?: cdk.Duration;
+   buildSpec?: codebuild.BuildSpec;
+   buildImage?: codebuild.LinuxBuildImage;
+   environmentVariables?: types.IEnv;
 }
 
-export class ProjectPipeline extends cdk.Construct {
-   public readonly bucket: s3.IBucket;
-   public readonly buildArtifact: codepipeline.Artifact;
-   public readonly sourceArtifact: codepipeline.Artifact;
-   public readonly project: pipelineProject.PipelineProject;
+interface PipelineProps extends Options {
+   account: string;
+   region: string;
+}
 
-   constructor(scope: cdk.Construct, id: string, props: PipelineProjectProps) {
-      super(scope, id);
+/**
+ *
+ * Base default options
+ */
+class DefaultOptions {
+   public static timeout = cdk.Duration.minutes(15);
+   public static buildImage = codebuild.LinuxBuildImage.STANDARD_4_0;
+   public static buildSpec = codebuild.BuildSpec.fromSourceFilename('buildspec.yml');
+}
 
-      /**
-       *
-       * Source artifacts
-       */
-      this.buildArtifact = new codepipeline.Artifact();
-      this.sourceArtifact = new codepipeline.Artifact();
+/**
+ *
+ * Pipeline Project with codebuild
+ */
+export class PipelineProject extends codebuild.PipelineProject {
+   constructor(scope: cdk.Construct, id: string, props: PipelineProps) {
+      super(scope, id, {
+         timeout: Object.assign(DefaultOptions.timeout, props.timeout),
+         buildSpec: Object.assign(DefaultOptions.buildSpec, props.buildSpec),
 
-      /**
-       *
-       * Bucket
-       */
-      this.bucket = s3.Bucket.fromBucketName(this, 'SourceCode-Bucket', props.bucketName);
+         environment: {
+            privileged: props.privileged || true,
+            buildImage: Object.assign(DefaultOptions.buildImage, props.buildImage),
+         },
 
-      /**
-       *
-       * Project
-       */
-      this.project = new pipelineProject.PipelineProject(this, 'Project-Pipeline', {
-         region: props.region,
-         account: props.account,
+         environmentVariables: {
+            AWS_ACCOUNT_ID: { value: props.account },
+            AWS_DEFAULT_REGION: { value: props.region },
+            ...props.environmentVariables,
+         },
       });
    }
 }
