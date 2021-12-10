@@ -31,7 +31,8 @@
          "@pattern/*": ["./lib/pattern/*"],
          "@construct/*": ["./lib/construct/*"],
          "@config": ["./config.json"]
-      }
+      },
+      "plugins": [{ "transform": "typescript-transform-paths" }]
    },
    "exclude": ["cdk.out", "dist"],
    "include": ["./lib/**/*", "./bin/**/*", "./types/**/*"]
