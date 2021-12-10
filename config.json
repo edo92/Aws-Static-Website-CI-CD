@@ -1,7 +1,22 @@
 {
    "settings": {
+      "locations": ["US"],
       "region": "us-east-1",
       "domainName": "testapplication.link",
       "hostedZoneId": "Z02961181Z5HPRUN9XWNI"
+   },
+
+   "project_source": {
+      "branch": "main",
+      "owner": "edo92",
+      "repo": "Basic-React-App",
+      "secretToken": "demoapp/gitSourcetoken"
+   },
+
+   "cdk_source": {
+      "branch": "main",
+      "owner": "edo92",
+      "repo": "Aws-Static-Website-CI-CD",
+      "secretToken": "demoapp/gitSourcetoken"
    }
 }
