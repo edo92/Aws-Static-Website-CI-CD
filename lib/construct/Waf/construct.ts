@@ -1,6 +1,5 @@
 import * as cdk from '@aws-cdk/core';
 import * as wafv2 from '@aws-cdk/aws-wafv2';
-
 import * as config from './config';
 
 type ScopeType = 'CLOUDFRONT' | 'LOCAL';
@@ -15,6 +14,11 @@ interface WafProps {
    scope: ScopeType;
    defaultAction?: config.IDefaultAction;
    visibilityConfig?: config.IVisibilityConfig;
+}
+
+export enum Scope {
+   LOCAL = 'LOCAL',
+   CLOUDFRONT = 'CLOUDFRONT',
 }
 
 export class WAFSecurity extends wafv2.CfnWebACL {
