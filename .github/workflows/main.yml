@@ -16,10 +16,10 @@ jobs:
 
       - name: Restore node_modules
         id: cache-node-modules
-          uses: actions/cache@v2
-          with:
-            path: node_modules
-            key: node-modules-static_cdk${{ hashFiles('package.json') }}
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-static_cdk${{ hashFiles('package.json') }}
 
       - name: Install
         run: npm install
