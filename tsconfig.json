@@ -23,10 +23,10 @@
       "strictPropertyInitialization": false,
       "noEmit": true,
       "esModuleInterop": true,
-      "baseUrl": ".",
       "rootDir": ".",
+      "baseUrl": ".",
       "paths": {
-         "@types": ["types"],
+         "@types": ["./types"],
          "@stack": ["./lib/stack"],
          "@pattern/*": ["./lib/pattern/*"],
          "@construct/*": ["./lib/construct/*"],
@@ -34,5 +34,5 @@
       }
    },
    "exclude": ["cdk.out", "dist"],
-   "include": ["lib/**/*", "bin/**/*", "types/**/*"]
+   "include": ["./lib/**/*", "./bin/**/*", "./types/**/*"]
 }
