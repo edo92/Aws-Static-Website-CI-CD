@@ -26,7 +26,10 @@
       "baseUrl": ".",
       "rootDir": ".",
       "paths": {
-         "@types": ["types"]
+         "@types": ["types"],
+         "@pattern/*": ["./lib/pattern/*"],
+         "@construct/*": ["./lib/construct/*"],
+         "@config": ["./config.json"]
       }
    },
    "exclude": ["cdk.out", "dist"],
