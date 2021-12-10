@@ -6,7 +6,7 @@ import { Invalidation } from './script';
 import { DistributionConfig, CloudFrontProps } from './config';
 
 interface DistributionProps extends CloudFrontProps {
-   webAclId?: string;
+   webAclId: string;
 }
 
 export class CloudDistribution extends cloudFront.Distribution {
@@ -23,7 +23,7 @@ export class CloudDistribution extends cloudFront.Distribution {
 
       /**
        *
-       * Input option
+       * Options
        */
       const clientOptions = {
          webAclId: props.webAclId,
