@@ -27,7 +27,6 @@
       "source-map-support": "^0.5.21"
    },
    "devDependencies": {
-      "tsconfig-paths": "^3.12.0",
       "@aws-cdk/assert": "^2.1.0",
       "@aws-cdk/assertions": "^1.134.0",
       "@types/jest": "^27.0.3",
@@ -45,10 +44,12 @@
       "eslint-plugin-import": "^2.25.3",
       "eslint-plugin-jest": "^25.3.0",
       "eslint-plugin-prettier": "^4.0.0",
+      "husky": "^7.0.4",
       "jest": "^27.4.3",
       "prettier": "^2.5.1",
       "ts-jest": "^27.1.1",
       "ts-node": "^10.4.0",
+      "tsconfig-paths": "^3.12.0",
       "typescript": "^4.5.2"
    }
 }
