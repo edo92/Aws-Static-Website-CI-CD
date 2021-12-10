@@ -3,7 +3,7 @@ import * as cloudFront from '@aws-cdk/aws-cloudfront';
 import { DistributionConfig, CloudFrontProps } from './config';
 
 interface DistributionProps extends CloudFrontProps {
-   webAclId: string;
+   webAclId?: string;
 }
 
 export class CloudDistribution extends cloudFront.Distribution {
