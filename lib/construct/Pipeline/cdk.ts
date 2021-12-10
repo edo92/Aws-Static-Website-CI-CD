@@ -3,9 +3,9 @@ import * as cdk from '@aws-cdk/core';
 import * as pipelines from '@aws-cdk/pipelines';
 
 interface CdkPipelineProps {
-   commands?: string[];
    github: types.IGithub;
    pipelineName?: string;
+   commands?: string[];
 }
 
 class DefaultOptions {
@@ -24,9 +24,7 @@ export class CdkPipeline extends cdk.Construct {
       const sourceCode = pipelines.CodePipelineSource.gitHub(
          `${props.github.owner}/${props.github.repo}`,
          props.github.branch,
-         {
-            authentication: cdk.SecretValue.secretsManager(props.github.secretToken),
-         }
+         { authentication: cdk.SecretValue.secretsManager(props.github.secretToken) }
       );
 
       /**
