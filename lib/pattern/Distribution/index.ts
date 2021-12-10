@@ -1,14 +1,14 @@
 import * as cdk from '@aws-cdk/core';
 import * as s3 from '@aws-cdk/aws-s3';
 
-interface HostingProps {
+interface DistributionProps {
    domainName: string;
 }
 
-export class HostingDistribution extends cdk.Construct {
+export class Distribution extends cdk.Construct {
    public readonly bucket: s3.Bucket;
 
-   constructor(scope: cdk.Construct, id: string, props: HostingProps) {
+   constructor(scope: cdk.Stack, id: string, props: DistributionProps) {
       super(scope, id);
 
       /**
