@@ -1,5 +1,5 @@
 import * as cdk from '@aws-cdk/core';
-import * as hosting from '@pattern/Distribution';
+import * as distribution from '@pattern/Distribution';
 import config from '@config';
 
 export class Infrastructure extends cdk.Stack {
@@ -10,8 +10,11 @@ export class Infrastructure extends cdk.Stack {
        *
        * Hosting Distribution
        */
-      new hosting.Distribution(this, 'Hosting-Distribution', {
+      new distribution.Distribution(this, 'Hosting-Distribution', {
+         locations: ['US'],
+         region: config.settings.region,
          domainName: config.settings.domainName,
+         hostedZoneId: config.settings.hostedZoneId,
       });
    }
 }

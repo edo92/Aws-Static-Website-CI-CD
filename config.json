@@ -1,5 +1,7 @@
 {
    "settings": {
-      "domainName": "testapplication.link"
+      "region": "us-east-1",
+      "domainName": "testapplication.link",
+      "hostedZoneId": "Z02961181Z5HPRUN9XWNI"
    }
 }
