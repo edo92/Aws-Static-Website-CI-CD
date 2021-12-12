@@ -1,7 +1,7 @@
 ## Architecture
 
   <p align="center">
-    <img src="https://github.com/edo92/AWS-ECS-Hosting-Pipeline/blob/docs/architectur-schema.png"/>
+    <img src="https://raw.githubusercontent.com/edo92/Aws-Static-Website-CI-CD/docs/.assets/diagram.png?token=AH5SSOLMOUMLFXOAWH4WBS3BX25T2"/>
   </p>
 
 <br/>
