@@ -1,13 +1,13 @@
-# Aws Static Website CI/CD
+<h1 align="center">Aws Static Website CI/CD</h1>
+</br>
 
-  <p align="center">
-    <img src="https://raw.githubusercontent.com/edo92/Aws-Static-Website-CI-CD/docs/.assets/diagram.png?token=AH5SSOLMOUMLFXOAWH4WBS3BX25T2"/>
-  </p>
-
-<br/>
-<br/>
+<p align="center">
+   <img src="https://raw.githubusercontent.com/edo92/Aws-Static-Website-CI-CD/docs/.assets/diagram.png?token=AH5SSOLMOUMLFXOAWH4WBS3BX25T2"/>
+</p>
 
 Static website hosting infrastructure on AWS by CDK. Deploys react source code to S3, serves website with low latency content delivery network with an origin access identity and Lambda@Edge. Secured by HTTPS (SSL/TLS) with certificate manager(ACM), and attaches it to the CloudFront distribution. Also secures cloudFront distribution with web application firewall (WAF) from common web-based attacks. This solution also includes two pipelines, one for cdk code infrastructue, and one for react codebase.
+
+---
 
 ![example workflow](https://github.com/edo92/Aws-Static-Website-CI-CD/actions/workflows/main.yml/badge.svg)
 
