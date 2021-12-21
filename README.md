@@ -13,7 +13,7 @@ Static website hosting infrastructure on AWS by CDK. Deploys react source code t
 
 </br>
 
-### 📜 &nbsp; Github Oauth Token
+### :key: &nbsp; Github Oauth Token
 
 > #### <i class="fa fa-gear fa-spin fa-2x" style="color: firebrick"></i> **_Create secret manager for github token_**
 
@@ -29,7 +29,7 @@ Static website hosting infrastructure on AWS by CDK. Deploys react source code t
 
 </br>
 
-### :key: &nbsp; Aws Credentials
+### 📜 &nbsp; Aws Credentials
 
 > #### <i class="fa fa-gear fa-spin fa-2x" style="color: firebrick"></i> **_Export local environmental variables_**
 
@@ -90,11 +90,12 @@ Static website hosting infrastructure on AWS by CDK. Deploys react source code t
 
 ---
 
-### :exclamation: &nbsp; Issues
+### :warning: &nbsp; Issues
 
+</br>
 #### Initial deployment
 
-> :warning: &nbsp; **On Initial Deployment**: Cdk pipeline will fail to prevent repeate deployment
+> &nbsp; **On Initial Deployment**: Cdk pipeline will fail to prevent repeate deployment
 
 </br>
 

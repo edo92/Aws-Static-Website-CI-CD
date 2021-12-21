@@ -25,14 +25,14 @@ export class Pipeline extends cdk.Construct {
 
       /**
        *
-       *
+       * Project build artifacts
        */
       this.buildArtifact = new codepipeline.Artifact();
       this.sourceArtifact = new codepipeline.Artifact();
 
       /**
        *
-       *
+       * Project
        */
       const project = new projectPipeline.PipelineProject(this, 'Project-Pipeline', {
          region: props.region,
