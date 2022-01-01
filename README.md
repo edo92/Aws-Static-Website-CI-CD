@@ -2,7 +2,7 @@
 </br>
 
 <p align="center">
-   <img src="https://raw.githubusercontent.com/edo92/Aws-Static-Website-CI-CD/main/.assets/diagram.png?token=AH5SSOINHH6C7I4TIFVTDMDBZJSUS"/>
+   <img src="https://raw.githubusercontent.com/edo92/Aws-Static-Website-CI-CD/main/.assets/diagram.png?token=AH5SSOKYC5SMHJXJOCHFNU3B3GNMM"/>
 </p>
 
 Static website hosting infrastructure on AWS by CDK. Deploys react source code to S3, serves website with low latency content delivery network with an origin access identity and Lambda@Edge. Secured by HTTPS (SSL/TLS) with certificate manager(ACM), and attaches it to the CloudFront distribution. Also secures cloudFront distribution with web application firewall (WAF) from common web-based attacks. This solution also includes two pipelines, one for cdk code infrastructue, and one for react codebase.
