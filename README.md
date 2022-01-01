@@ -16,7 +16,7 @@ Static website hosting infrastructure on AWS by CDK. Deploys react source code t
 ### Resources
 
 -  [React Application](https://github.com/edo92/Basic-React-App)
--  [Cloud Infrastructure](https://github.com/edo92/Aws-Cdk-Ecs-Blue-Green-Deployment)
+-  [Cloud Infrastructure](https://github.com/edo92/Aws-Static-Website-CI-CD)
 
 </br>
 
