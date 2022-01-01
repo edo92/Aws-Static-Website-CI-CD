@@ -13,6 +13,13 @@ Static website hosting infrastructure on AWS by CDK. Deploys react source code t
 
 </br>
 
+### Resources
+
+-  [React Application](https://github.com/edo92/Basic-React-App)
+-  [Cloud Infrastructure](https://github.com/edo92/Aws-Static-Website-CI-CD)
+
+</br>
+
 ### :key: &nbsp; Github Oauth Token
 
 > #### <i class="fa fa-gear fa-spin fa-2x" style="color: firebrick"></i> **_Create secret manager for github token_**
@@ -93,6 +100,7 @@ Static website hosting infrastructure on AWS by CDK. Deploys react source code t
 ### :warning: &nbsp; Issues
 
 </br>
+
 #### Initial deployment
 
 > &nbsp; **On Initial Deployment**: Cdk pipeline will fail to prevent repeate deployment
